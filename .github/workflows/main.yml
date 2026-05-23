@@ -19,4 +19,10 @@ jobs:
 
       # Check if the GitHub actor is Member 1
       # Run the following CLI command to update index.html
-     sed -i '/<\/body>/i <p>Updated by Member 1 on '"$(date)"'</p>' index.html
+      sed -i '/<\/body>/i <p>Updated by Member 1 on '"$(date)"'</p>' index.html
+      # Step 3: Update README
+        # Append a Log entry to the README.md file
+        # Use the CLI to append a line to README.md
+        # The Log entry should look like this:
+        ### Updated by <username> on <date> [Commit: commitID]
+      echo "### Updated by ${{ github.actor }} on $(date '+%Y-%m-%d %H:%M:%S') [Commit: $(git rev-parse --short HEAD)]" >> README.md
